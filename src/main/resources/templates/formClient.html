@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Mise à jour des produits</title>
+  <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css">
+  <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+
+<!-- Grey with black text -->
+<nav class="navbar navbar-expand-sm bg-white navbar-white">
+  <div class="container-fluid justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{client}" role="button" data-bs-toggle="dropdown">Client</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{formClient}" role="button" data-bs-toggle="dropdown">Aj_Client</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{produit}" role="button" data-bs-toggle="dropdown">Produit</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{formProduit}" role="button" data-bs-toggle="dropdown">Aj_Produit</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{vehicule}" role="button" data-bs-toggle="dropdown">Vehicule</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{formVehicule}" role="button" data-bs-toggle="dropdown">Aj_Vehicule</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{depot}" role="button" data-bs-toggle="dropdown">Dépôt</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{formDepot}" role="button" data-bs-toggle="dropdown">Aj_Dépôt</a>
+      </li>
+    </ul>
+
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{commande}" role="button" data-bs-toggle="dropdown">Commande</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{formCommande}" role="button" data-bs-toggle="dropdown">Aj_Commande</a>
+      </li>
+    </ul>
+
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{livraison}"  role="button" data-bs-toggle="dropdown">Livraison</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{formLivraison}"  role="button" data-bs-toggle="dropdown">Aj_Livraison</a>
+      </li>
+    </ul>
+
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{livreur}" role="button" data-bs-toggle="dropdown">Livreur</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" th:href="@{formLivreur}" role="button" data-bs-toggle="dropdown">Aj_Livreur</a>
+      </li>
+    </ul>
+
+
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          [Username]
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <form method="post" th:action="@{/logout}">
+              <button class="dropdown-item" type="submit"> Logout </button>
+            </form>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <div class="col-md-6 offset-3">
+    <form class="mb-3" method="post" th:action="@{saveClient}">
+      <div class="mb-3">
+        <label for="nom">Nom :</label>
+        <input id="nom" class="form-control" type="text" name="nom" th:value="${client.nom}">
+        <span class="text-danger" th:errors="${client.nom}"></span>
+      </div>
+      <div class="mb-3">
+        <label for="prenom">Prenom :</label>
+        <input id="prenom" class="form-control" type="text" name="prenom" th:value="${client.prenom}">
+        <span class="text-danger" th:errors="${client.prenom}"></span>
+      </div>
+      <div class="mb-3">
+        <label for="adresse">Adresse :</label>
+        <input id="adresse" class="form-control" type="text" name="adresse" th:value="${client.adresse}">
+        <span class="text-danger" th:errors="${client.adresse}"></span>
+      </div>
+      <div class="mb-3">
+        <label for="email">Email :</label>
+        <input id="email" class="form-control" type="text" name="email" th:value="${client.email}">
+        <span class="text-danger" th:errors="${client.email}"></span>
+      </div>
+      <div class="mb-3">
+        <label for="telephone">Telephone :</label>
+        <input id="telephone" class="form-control" type="text" name="telephone" th:value="${client.telephone}">
+        <span class="text-danger" th:errors="${client.telephone}"></span>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
+  </div>
+
+
+</body>
+</html>
